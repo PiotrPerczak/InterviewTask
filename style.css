@@ -1,3 +1,217 @@
+/* --- Główne style strony --- */
+/* --- Nawigacja (navbar) --- */
+/* --- Popup powiększania zdjęcia --- */
+/* --- Siatka wyróżnionych produktów (featured) --- */
+/* --- Picker liczby produktów i siatka produktów --- */
+/* --- Responsywność i media queries --- */
+html {
+  scroll-behavior: smooth;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  font-size: 16px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1003;
+  min-height: 64px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+@media (max-width: 900px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 0;
+  }
+  .navbar-left {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .navbar-center {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 1001;
+    padding: 24px 0;
+    align-items: center;
+    gap: 18px;
+  }
+  .navbar-center.active {
+    display: flex;
+  }
+  .navbar-center a {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+  .hamburger {
+    display: block !important;
+  }
+  .navbar-right {
+    gap: 8px;
+  }
+}
+
+/* --- POPUP --- */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.popup-window {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px 24px 16px 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.popup-window img {
+  max-width: 80vw;
+  max-height: 70vh;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: #222;
+  cursor: pointer;
+  z-index: 10;
+}
+.featured-id {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #222;
+  background: rgba(255,255,255,0.85);
+  padding: 2px 10px;
+  border-radius: 12px;
+  z-index: 3;
+  pointer-events: none;
+}
+/* --- FEATURED GRID --- */
+.featured-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 32px;
+  justify-items: center;
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  .featured-images {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+  .featured-outer, .featured-wrapper {
+    width: 320px;
+    min-width: 220px;
+    height: 320px;
+  }
+  .featured-img {
+    width: 270px;
+    height: 270px;
+  }
+}
+@media (max-width: 900px) {
+  .featured-images {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .featured-outer, .featured-wrapper {
+    width: 95vw;
+    min-width: 0;
+    height: 60vw;
+    max-width: 100vw;
+    max-height: 70vw;
+  }
+  .featured-img {
+    width: 80vw;
+    height: 80vw;
+    max-width: 95vw;
+    max-height: 60vw;
+  }
+}
+
+/* --- FEATURED GRID KLASY --- */
+.featured-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 427px;
+}
+.featured-wrapper {
+  width: 427px;
+  height: 427px;
+  background: #EAEAE8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  position: relative;
+}
+.featured-img {
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.featured-fav {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.featured-arrow {
+  position: absolute;
+  right: -48px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  z-index: 3;
+}
+.featured-desc {
+  margin-top: 18px;
+  font-size: 18px;
+  color: #222;
+  text-align: center;
+  font-weight: 500;
+  min-height: 24px;
+}
 body {
   padding-left: 42px;
   padding-right: 42px;

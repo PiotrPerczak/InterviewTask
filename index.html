@@ -9,28 +9,34 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
   <body >
+    <!-- Główna siatka strony -->
     <div style="display: grid; row-gap: 80px;">
+    <!-- Nawigacja główna (navbar) -->
     <nav class="navbar">
+      <!-- Lewa część navbaru: logo i nazwa -->
       <div class="navbar-left">
-        <img src="./assets/FORMA ICON.svg" alt="icon" width="24px" height="24px" class="svg" style="margin-right: 12px;"  /></img>
+        <img src="./assets/FORMA ICON.svg" alt="icon" width="24px" height="24px" class="svg" style="margin-right: 12px;"  />
         <span style="margin-right: 32px;">FORMA'SINT.</span>
-        <span>IDOMODS&lt/&gt</></span>
+        <span>IDOMODS&lt/&gt</span>
       </div>
+      <!-- Środkowa część navbaru: linki do sekcji -->
       <div class="navbar-center">
-        <a href="#">HOME</a>
-        <a href="#">FEATURED PRODUCTS</a>
-        <a href="#">PRODUCT LISTING</a>
+        <a href="#home-section">HOME</a>
+        <a href="#featured-section">FEATURED PRODUCTS</a>
+        <a href="#products-section">PRODUCT LISTING</a>
       </div>
+      <!-- Prawa część navbaru: ikona użytkownika, opis, hamburger -->
       <div class="navbar-right">
         <img src="./assets/ICONS=Icon_user (1).svg" alt="Logo" width="24px" height="24px" />
         <span>FRONTEND DEVELOPER</span>
+        <img src="./assets/ICONS=MENU_HAMBURGER.svg" alt="menu" class="hamburger" id="hamburger-menu" style="width:32px;height:32px;display:none;cursor:pointer;" />
       </div>
     </nav>
-    <header style="display: grid; row-gap: 42px;">
+    <!-- Sekcja główna (hero) -->
+    <header id="home-section" style="display: grid; row-gap: 42px;">
       <img
         src="./assets/LOGO FORMA.png"
         alt="Forma Icon"
@@ -38,10 +44,32 @@
         <Img src="/assets/HERO PHOTO.png" alt="Hero Image" class="img-main"/>
     </header>
     </div>
-    <div style="display: grid;  margin-top: 80px; margin-bottom: 20px;">
+    <!-- Sekcja featured (nagłówek) -->
+    <div id="featured-section" style="display: grid;  margin-top: 80px; margin-bottom: 20px;">
       <p style="font-size: 16px">FEATURED PRODUCTS</p>
       <h1 style="font-size:42px">Browse featured</h1>
     </div>
+    <!-- Kontener na wyróżnione produkty -->
+    <div id="featured-images" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px;"></div>
+    <!-- Sekcja z pickerem liczby produktów na stronę -->
+    <section id="products-section" class="products-per-page-picker">
+      <label for="productsPerPage">Number of products per page: </label>
+      <select id="productsPerPage">
+        <option value="14" selected>14</option>
+        <option value="24" >24</option>
+        <option value="36">36</option>
+
+      </select>
+      <div id="picker-images" class="featured-images" style="margin-top:32px;"></div>
+    </section>
+    <!-- Popup do powiększania zdjęcia -->
+    <div id="popup-overlay" class="popup-overlay" style="display:none;">
+      <div class="popup-window">
+        <button class="popup-close" id="popup-close">&times;</button>
+        <img id="popup-img" src="" alt="popup" />
+      </div>
+    </div>
+    <!-- Skrypt JS obsługujący interakcje na stronie -->
     <script src="script.js"></script>
   </body>
 </html>
